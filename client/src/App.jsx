@@ -1,9 +1,27 @@
 import React from "react";
+import "./index.css";
+
+import {
+  Navbar,
+  Transaction,
+  Services,
+  Footer,
+  Loader,
+  Welcome,
+} from "./components/index";
+
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Samss House</h1>
+    <div className="min-h-screen">
+      <div className="gradient-bg-welcome">
+        <Navbar />
+        <Welcome />
+      </div>
+        <Transaction />
+        <Services />
+        <Footer />
+        <Loader />
     </div>
   );
 }
