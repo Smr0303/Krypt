@@ -1,9 +1,9 @@
 import React from 'react'
 
-function loader() {
+function Loader() {
   return (
     <div>loader</div>
   )
 }
 
-export default loader
+export default Loader;
