@@ -21,7 +21,6 @@ function App() {
         <Transaction />
         <Services />
         <Footer />
-        <Loader />
     </div>
   );
 }

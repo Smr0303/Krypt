@@ -8,13 +8,22 @@ import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from "./";
 
 function Welcome() {
+  const {
+    connectWallet,
+    connectedAccount,
+    formData,
+    setFormData,
+    handleChange,
+    sendTransaction,
+  } = useContext(TransactionContext);
 
-  const {connectWallet} = useContext(TransactionContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { addressTo, amount, keyword, message } = formData;
 
-  const handleChange = (e, name) => {};
-  const handleSubmit =()=>{
-
-  }
+    if (addressTo || amount || keyword || message) return;
+    sendTransaction();
+  };
 
   const Input = ({ placeholder, name, type, value, handleChange }) => (
     <input
@@ -41,13 +50,17 @@ function Welcome() {
             Explore the crypto world. Buy and sell cryptocurrencies easily on
             Krypto.
           </p>
-          <button
-            type="button"
-            onClick={connectWallet}
-            className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
-          >
-            <p className="text-white text-base font-semibold">Connect Wallet</p>
-          </button>
+          {!connectedAccount && (
+            <button
+              type="button"
+              onClick={connectWallet}
+              className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
+            >
+              <p className="text-white text-base font-semibold">
+                Connect Wallet
+              </p>
+            </button>
+          )}
 
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${companyCommonStyles}`}>
@@ -110,10 +123,10 @@ function Welcome() {
                 type="text"
                 handleChange={handleChange}
               />
-             <div className="h-[1px] w-full bg-gray-400 my-2"/>
-             {true
-              ? <Loader />
-              : (
+              <div className="h-[1px] w-full bg-gray-400 my-2" />
+              {0 ? (
+                <Loader />
+              ) : (
                 <button
                   type="button"
                   onClick={handleSubmit}
