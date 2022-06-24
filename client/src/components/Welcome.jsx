@@ -20,21 +20,22 @@ function Welcome() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { addressTo, amount, keyword, message } = formData;
-
-    if (addressTo || amount || keyword || message) return;
+    console.log("Htti");
+    if (!addressTo || !amount || !keyword || !message) return;
     sendTransaction();
   };
 
-  const Input = ({ placeholder, name, type, value, handleChange }) => (
-    <input
-      placeholder={placeholder}
-      type={type}
-      step="0.0001"
-      value={value}
-      onChange={(e) => handleChange(e, name)}
-      className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
-    />
-  );
+  // const Input = ({ placeholder, name, type, value }) => 
+    
+  //   <input
+  //     placeholder={placeholder}
+  //     type={type}
+  //     step="0.0001"
+  //     value={value}
+  //     onChange={(e) => handleChange(name,e)}
+  //     className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
+  //   />
+  // );
 
   const companyCommonStyles =
     "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -99,29 +100,39 @@ function Welcome() {
               </div>
             </div>
             <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center blue-glassmorphism">
-              <Input
+              <input
                 placeholder="Address To"
                 name="addressTo"
+                step="0.0001"
                 type="text"
-                handleChange={handleChange}
+                value={formData.addressTo}
+                onChange={handleChange}
+                className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
               />
-              <Input
+              <input
                 placeholder="Amount (ETH)"
                 name="amount"
                 type="number"
-                handleChange={handleChange}
+                step="0.0001"
+                value={formData.amount}
+                onChange={handleChange}
+                className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
               />
-              <Input
+              <input
                 placeholder="Keyword (Gif)"
                 name="keyword"
                 type="text"
-                handleChange={handleChange}
+                value={formData.keyword}
+                onChange={handleChange}
+                className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
               />
-              <Input
+              <input
                 placeholder="Enter Message"
                 name="message"
                 type="text"
-                handleChange={handleChange}
+                value={formData.message}
+                onChange={handleChange}
+                className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
               />
               <div className="h-[1px] w-full bg-gray-400 my-2" />
               {0 ? (
