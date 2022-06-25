@@ -1,11 +1,13 @@
 import React,{useContext} from 'react';
 import {TransactionContext} from '../context/TransactionContext';
 import dummyData from '../utils/dummyData';
+import useFetch from '../utils/useFetch';
+import {shortenAddress} from '../utils/shortenAddress'; 
 
 
 function Transaction() {
 
-  const {connectedAccount} = useContext(TransactionContext);
+  const {connectedAccount,transaction} = useContext(TransactionContext);
 
   const TransactionsCard = ({ addressTo, addressFrom, timestamp, message, keyword, amount, url }) => {
     const gifUrl = useFetch({ keyword });
@@ -63,9 +65,9 @@ function Transaction() {
       )}
 
       <div className="flex flex-wrap justify-center items-center mt-10">
-        {/* {dummyData.reverse().map((transaction, i) => (
+        {transaction.reverse().map((transaction, i) => (
           <TransactionsCard key={i} {...transaction} />
-        ))} */}
+        ))}
       </div>
     </div>
   </div>
