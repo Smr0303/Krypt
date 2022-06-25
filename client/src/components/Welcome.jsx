@@ -3,7 +3,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import { TransactionContext } from "../context/TransactionContext";
-// import { shortenAddress } from "../utils/shortenAddress";
+import { shortenAddress } from "../utils/shortenAddress";
 
 import { Loader } from "./";
 
@@ -93,9 +93,9 @@ function Welcome() {
                   <BsInfoCircle fontSize={17} color="#fff" />
                 </div>
                 <div>
-                  {/* <p className="text-white font-light text-sm">
-                  {shortenAddress(currentAccount)}
-                </p> */}
+                  <p className="text-white font-light text-sm">
+                  {connectedAccount && shortenAddress(connectedAccount)}
+                </p>
                   <p className="text-white font-semibold text-lg mt-1">
                     Ethereum
                   </p>

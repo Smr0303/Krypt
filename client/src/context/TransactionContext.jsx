@@ -88,7 +88,6 @@ export const TransactionProvider = ({ children }) => {
       setLoading(false);
       console.log("success", transactionHash.hash)
 
-      
        const transactionCount = transactionContract.getTransactionCount(); 
       
     } catch (err) {
