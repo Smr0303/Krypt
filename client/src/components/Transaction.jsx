@@ -66,7 +66,7 @@ function Transaction() {
 
       <div className="flex flex-wrap justify-center items-center mt-10">
         {transaction.reverse().map((transaction, i) => (
-          <TransactionsCard key={i} {...transaction} />
+          <TransactionsCard key={i} {...transaction}  url="https://metro.co.uk/wp-content/uploads/2015/05/pokemon_crying.gif?quality=90&strip=all&zoom=1&resize=500%2C284" />
         ))}
       </div>
     </div>

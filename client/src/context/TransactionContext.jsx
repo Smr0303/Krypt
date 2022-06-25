@@ -125,7 +125,7 @@ export const TransactionProvider = ({ children }) => {
       setLoading(false);
       console.log("success", transactionHash.hash);
 
-      const transactionCount = transactionContract.getTransactionCount();
+     window.location.reload();
     } catch (err) {
       throw new Error(err);
     }
