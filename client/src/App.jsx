@@ -18,8 +18,8 @@ function App() {
         <Navbar />
         <Welcome />
       </div>
-        <Transaction />
         <Services />
+        <Transaction />
         <Footer />
     </div>
   );

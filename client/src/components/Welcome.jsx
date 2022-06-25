@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
@@ -8,6 +8,7 @@ import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from "./";
 
 function Welcome() {
+  const [Loading, isLoading] = useState(false);
   const {
     connectWallet,
     connectedAccount,
@@ -18,11 +19,13 @@ function Welcome() {
   } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
+    isLoading(true);
     e.preventDefault();
     const { addressTo, amount, keyword, message } = formData;
     console.log("Htti");
     if (!addressTo || !amount || !keyword || !message) return;
     sendTransaction();
+    isLoading(false);
   };
 
   // const Input = ({ placeholder, name, type, value }) => 
@@ -135,7 +138,7 @@ function Welcome() {
                 className="my-2 w-full rounded-sm p-2 outline-none bg-transparent text-white border-none text-sm white-glassmorphism"
               />
               <div className="h-[1px] w-full bg-gray-400 my-2" />
-              {0 ? (
+              {Loading ? (
                 <Loader />
               ) : (
                 <button
