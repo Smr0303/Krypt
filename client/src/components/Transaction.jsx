@@ -38,7 +38,7 @@ function Transaction() {
             )}
           </div>
           <img
-            src={gifUrl || url}
+            src={gifUrl? gifUrl:url}
             alt="nature"
             className="w-full h-64 2xl:h-96 rounded-md shadow-lg object-cover"
           />

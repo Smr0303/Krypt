@@ -22,7 +22,6 @@ function Welcome() {
     isLoading(true);
     e.preventDefault();
     const { addressTo, amount, keyword, message } = formData;
-    console.log("Htti");
     if (!addressTo || !amount || !keyword || !message) return;
     sendTransaction();
     isLoading(false);

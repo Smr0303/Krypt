@@ -81,6 +81,7 @@ export const TransactionProvider = ({ children }) => {
         method: "eth_requestAccounts",
       });
       setConnectedAccount(accounts[0]);
+      window.location.reload();
     } catch (err) {
       console.log(err);
       throw new Error(err);
@@ -101,7 +102,7 @@ export const TransactionProvider = ({ children }) => {
       const { addressTo, amount, keyword, message } = formData;
       const transactionContract = getEthereum();
       const parsedAmount = ethers.utils.parseEther(amount);
-
+ console.log(connectedAccount, addressTo);
       await ethereum.request({
         method: "eth_sendTransaction",
         params: [
